@@ -1,0 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Raleway&display=swap");
+
+:root {
+    --theme: #bd5528;
+}
+
+#warning {
+    display: none;
+    color: darkred;
+}
+
+.record {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.record input {
+    flex-grow: 1;
+    border: none;
+    border-bottom: 4px solid gainsboro;
+    padding: 10px;
+    transition: border-color 0.3s ease-in-out;
+    margin: 0 5px;
+}
+
+.record input:first-child {
+    margin-left: 0;
+}
+
+.record input:focus {
+    outline: none;
+    border-color: var(--theme);
+}
+
+.record input[type="text"],
+.record input[type="number"] {
+    min-width: 7pc;
+}
+
+.record form {
+    display: flex;
+}
+
+.record .remove {
+    display: inline-block;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Raleway", sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Comfortaa", serif;
+    /* text-transform: uppercase; */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+
+    /* background: #ddd6f3; 
+            background: -webkit-linear-gradient(45deg, #faaca8, #ddd6f3); 
+            background: linear-gradient(45deg, #faaca8, #ddd6f3);  */
+
+    background: #ffe259;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #ffa751, #ffe259);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #ffa751, #ffe259);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    /* background: #00C9FF;  fallback for old browsers */
+    /* background: -webkit-linear-gradient(to right, #92FE9D, #00C9FF);  Chrome 10-25, Safari 5.1-6 */
+    /* background: linear-gradient(to right, #92FE9D, #00C9FF); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.content {
+    background: rgb(253, 252, 252);
+    /* backdrop-filter: blur; */
+    width: 50%;
+    margin: 0 auto;
+    min-height: 80vh;
+    margin-top: 3pc;
+    padding: 20px 10pc;
+    display: flex;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    /* border-radius: 10px; */
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+}
+
+button {
+    background: transparent;
+    border: 1px solid var(--theme);
+    color: var(--theme);
+    padding: 15px 25px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    margin-right: 10px;
+}
+
+button.filled {
+    background: var(--theme);
+    color: white;
+}
+
+.semester {
+    margin: 4px;
+}
+
+.dropdown {
+    top: 0;
+    left: -1000px;
+    /* display: none; */
+    position: absolute;
+    z-index: 10000;
+    border: 1px solid gainsboro;
+    width: 20pc;
+    background: white;
+    max-height: 30pc;
+    overflow-y: auto;
+}
+
+.dropdown .entry {
+    padding: 9px;
+    border-bottom: 1px solid gainsboro;
+    width: 100%;
+}
+
+.dropdown .entry > div {
+    display: inline-block;
+}
+
+.dropdown .entry .code {
+    padding: 5px 5px;
+    background: gainsboro;
+    font-size: 90%;
+    font-family: monospace;
+    margin-right: 5px;
+}
+
+.dropdown .entry:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+hr {
+    width: 50%;
+    margin: 2.5pc auto;
+    border: 0;
+    border-bottom: 1px solid gainsboro;
+}
+
+.result-entry {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.result-entry .explain-grade {
+    margin-left: 20px;
+}
+
+.result-entry .space {
+    flex-grow: 1;
+}
+
+.result-entry .code {
+    border-radius: 5px;
+    padding: 10px;
+    background: var(--theme);
+    font-size: 90%;
+    display: inline-block;
+    font-family: monospace;
+    margin-right: 5px;
+    color: white;
+    margin-top: 5px;
+}
+
+.result-entry .grade {
+    align-self: center;
+    align-self: center;
+    width: 4pc;
+    height: 4pc;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100px;
+    background: var(--theme);
+    color: white;
+}
+
+.result-entry .grade.better {
+    background: #a3cb38;
+}
+
+.result-entry .grade.worse {
+    background: #ed4c67;
+}
+
+@media screen and (max-width: 1383px) {
+    .content {
+        padding: 20px 2pc;
+    }
+}
+
+@media screen and (max-width: 1025px) {
+    .content {
+        width: 75%;
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .record {
+        flex-direction: column;
+    }
+
+    .record input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

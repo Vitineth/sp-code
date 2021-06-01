@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>SP Grade Calculator</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://xiomi.org/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://xiomi.org/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://xiomi.org/icons/favicon-16x16.png">
+    <link rel="mask-icon" href="https://xiomi.org/icons/safari-pinned-tab.svg" color="#ffa751">
+    <link rel="shortcut icon" href="https://xiomi.org/icons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#ffa751">
+    <meta name="msapplication-config" content="https://xiomi.org/icons/browserconfig.xml">
+    <meta name="theme-color" content="#ffa751">
+    <meta name="description"
+        content="Calculate SP code grades and the optimal combination of modules to SP code to achieve the highest grades">
+
+    <link rel="stylesheet" href="https://unpkg.com/vanilla-recycler-view@latest/dist/vanilla-recycler-view.min.css">
+    <script src="https://unpkg.com/vanilla-recycler-view@latest/dist/vanilla-recycler-view.min.js" defer></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-08SECNZ8S1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-08SECNZ8S1');
+    </script>
+
+    <script src="index.js" defer></script>
+    <link rel="stylesheet" href="index.css"/>
+</head>
+
+<body>
+
+    <div class="dropdown" id="module-entries">
+    </div>
+
+    <template id="module-row">
+        <div class="record">
+            <input aria-label="Module code (ie CS2003)" type="text" class="module" placeholder="Module" />
+            <input aria-label="Module credits (ie 30)" type="number" min="0" class="credits" placeholder="Credits" />
+            <input aria-label="Grade (in range 0-20)" type="number" class="grade" min="0" max="20" step="0.01"
+                placeholder="Grade" />
+            <form action="#" onsubmit="false">
+                <div class="semester">
+                    <input aria-label="Module is offered in Semester 1" type="radio" class="sem1" name="n" value="s1"
+                        checked> S1
+                </div>
+                <div class="semester">
+                    <input aria-label="Module is offered in Semester 2" type="radio" class="sem2" name="n" value="s2">
+                    S2
+                </div>
+            </form>
+            <div class="remove">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
+                </svg>
+            </div>
+        </div>
+    </template>
+
+    <div class="content">
+        <h1>SP-code Grade Calculator</h1>
+        <div class="card">
+            <h2 style="margin-top: 0;">Enter Modules</h1>
+                <div id="warning">Warning</div>
+                <div id="modules"></div>
+                <hr>
+                <div style="text-align: center;">
+                    <button id="add">Add</button>
+                    <button id="submit" class="filled">Submit</button>
+                </div>
+        </div>
+        <div class="card" id="sem1-result">
+        </div>
+        <div class="card" id="sem2-result">
+        </div>
+    </div>
+</body>
+
+</html>
